@@ -22,7 +22,7 @@ Usage with STDIN:
 some-command-generating-IPv4addresses | test_if_IP_within_CloudFront_CIDR.php
 ```
 Multiple addresses per line are acceptable if delimited by commas or common whitespace
-characters like " ", "\n", "\t"
+characters like `" "`, `"\n"`, `"\t"`
 
 
 Output:
@@ -44,15 +44,15 @@ OK - CloudFront IP:  54.182.204.74
 ```
 
 
-**Required**: Network connectivity to reach Amazon AWS to query $aws_IP_ranges_URL
+**Required**: Network connectivity to reach Amazon AWS to download via HTTP - see `$aws_IP_ranges_URL`
 
 As of 2015-12-10 the URL is https://ip-ranges.amazonaws.com/ip-ranges.json
 
 
-__Full example of use__: Download an ELB log to a local file - in this example "ELBlog.txt".
-Take the third field of the log (which is the client IP address) with 'awk'
-and drop the port number with 'cut' then sort and make them unique before
-feeding to this script. Finally, 'grep' out the "OK" addresses and show only those
+__Full example of use__: Download an ELB log to a local file - in this example `ELBlog.txt`.
+Take the third field of the log (which is the client IP address) with `awk`
+and drop the port number with `cut`, then `sort` and make them unique (`uniq`) before
+feeding to this script. Finally, `grep` out the "OK" addresses and show only those
 which don't fall within CloudFront CIDR blocks.
 ```
 % awk '{print $3}' ELBlog.txt | cut -d: -f1 | sort -n | uniq | ./test_if_IP_within_CloudFront_CIDR.php | grep -v OK
