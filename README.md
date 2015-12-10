@@ -46,6 +46,8 @@ OK - CloudFront IP:  54.182.204.74
 
 **Required**: Network connectivity to reach Amazon AWS to query $aws_IP_ranges_URL
 
+As of 2015-12-10 the URL is https://ip-ranges.amazonaws.com/ip-ranges.json
+
 
 __Full example of use__: Download an ELB log to a local file - in this example "ELBlog.txt".
 Take the third field of the log (which is the client IP address) with 'awk'
