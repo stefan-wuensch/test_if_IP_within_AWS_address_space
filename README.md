@@ -1,4 +1,4 @@
-# test_if_IP_within_CloudFront_CIDR
+# test_if_IP_within_CloudFront_CIDR.php
 A PHP script to test IPv4 addresses for whether they are within AWS CloudFront.
 
 By Stefan Wuensch Dec. 2015
@@ -64,3 +64,18 @@ Bad - not CloudFront IP:  61.160.247.231
 Bad - not CloudFront IP:  62.210.88.201
 Bad - not CloudFront IP:  66.249.66.2
 ```
+
+
+
+# test_if_IP_within_any_AWS_space.php
+
+By Stefan Wuensch Dec. 2016
+
+This script takes one or more IPv4 addresses and checks each one to see if it falls within
+an known address block of Amazon Web Service (AWS).
+
+(This is the same idea - and usage - as the one documented above. This one validates an IP address
+against __all__ of Amazon AWS IP space, while the one above just checks CloudFront.)
+
+
+
